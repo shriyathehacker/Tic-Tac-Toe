@@ -1,5 +1,5 @@
 import pygame
-from game import code
+from RandomStuff import game
 
 pygame.init()
 screen = pygame.display.set_mode((800, 600))
@@ -14,20 +14,20 @@ class button(pygame.sprite.Sprite):
     self.type = type
     
   def activate(self):
-    code(self.type)
+    game.code(self.type)
     
-titleSurface = pygame.image.load("tictactoelogo.png").convert_alpha()
+titleSurface = pygame.image.load("RandomStuff/tictactoelogo.png").convert_alpha()
 titleSurface.set_colorkey((255, 255, 255))
 titleRect = titleSurface.get_rect(midtop = (400, 0))
 
-font = pygame.font.Font("Risque-Regular.otf", 100)
+font = pygame.font.Font("RandomStuff/Risque-Regular.otf", 100)
 
 button1 = button("Player Start", 400, 250, True)
 button2 = button("AI Start", 400, 400, False)
 buttonsGroup = pygame.sprite.Group()
 buttonsGroup.add(button1, button2)
 
-file = open("currentScores.txt", "r")
+file = open("RandomStuff/currentScores.txt", "r")
 intList = [str(x) for x in file.readline().split()]
 file.close()
 intList.reverse()
@@ -48,7 +48,7 @@ while done:
       for buttons in buttonsGroup:
         if buttons.rect.collidepoint(event.pos):
           buttons.activate()
-          file = open("currentScores.txt", "r")
+          file = open("RandomStuff/currentScores.txt", "r")
           intList = [str(x) for x in file.readline().split()]
           file.close()
           intList.reverse()

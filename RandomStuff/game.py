@@ -1,6 +1,6 @@
 import pygame
 import sys
-from ai import move
+from RandomStuff import ai
 from time import sleep
 from random import randint
 
@@ -91,7 +91,7 @@ def code(flag):
     return None
 
   def fileSort(value):
-    fin = open("currentScores.txt", "r")
+    fin = open("RandomStuff/currentScores.txt", "r")
     intList = [int(x) for x in fin.readline().split()]
 
     if value == 1:
@@ -101,7 +101,7 @@ def code(flag):
     else:
       intList[2] += 1
 
-    fout = open("currentScores.txt", "w")
+    fout = open("RandomStuff/currentScores.txt", "w")
     fout.write(" ".join(map(str, intList)))
     fout.close()
         
@@ -112,7 +112,7 @@ def code(flag):
   
   tileGroup = pygame.sprite.Group()
 
-  font = pygame.font.Font("Risque-Regular.otf", 50)
+  font = pygame.font.Font("RandomStuff/Risque-Regular.otf", 50)
 
   text1Surface = font.render("AI", True, (160, 32, 240))
   text1Rect = text1Surface.get_rect(midleft = (610, 200))
@@ -148,7 +148,7 @@ def code(flag):
     if not(flag):
       possibleMoves = actions(array)
       if possibleMoves != []:
-        position = move(possibleMoves, array)
+        position = ai.move(possibleMoves, array)
         for tile in tileGroup:
           if tile.id == position:
             flag = tile.click(flag)
