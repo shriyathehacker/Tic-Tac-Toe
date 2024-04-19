@@ -20,4 +20,6 @@ This file contains your enemy (don't open it, hes very shy)
 The AI utilizes the minimax algorithm (hence why it takes a while for him to play the first move)
 I have decided to name the AI ChipperBot (and by that I asked ChatGPT)
 
+final.png
+This shows you the final state of the most recent game that you have played
 Have fun and good luck !!!
